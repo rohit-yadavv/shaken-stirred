@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <Logo>
-        <img src="/public/assets/logo.png" alt="" />
+        <img src="/assets/logo.png" alt="" />
       </Logo>
       <hr />
       <Others>
