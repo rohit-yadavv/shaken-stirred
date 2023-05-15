@@ -40,6 +40,7 @@ const AppProvider = (props) => {
     try {
       dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
+      dispatch({ type: "LOADER_60" });
       var drink = await res.data.drinks;
       dispatch({ type: "LOADER_80" });
     } catch (error) {
