@@ -6,6 +6,7 @@ import Drink from "./Drink";
 const Cocktails = () => {
   const { cocktails, vodka, tequilla, non_alcoholic, alcoholic } =
     useAppProvider();
+  console.log(cocktails);
   const uniqueCocktails = cocktails.filter((item, pos) => {
     return cocktails.indexOf(item) == pos;
   });

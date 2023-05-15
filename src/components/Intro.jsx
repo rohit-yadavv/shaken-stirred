@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Intro = () => {
@@ -19,11 +19,9 @@ const Intro = () => {
             <br /> <br /> Come sip, savor, and enjoy our unique cocktail
             creations!
           </p>
-          <button>
-            <NavLink className="link" to="/cocktails">
-              Explore
-            </NavLink>
-          </button>
+          <Link className="link" to="/cocktails">
+            <button>Explore</button>
+          </Link>
         </Info>
         <Images>
           <img src="./assets/cocktail1.png" />
@@ -61,23 +59,26 @@ const Info = styled.div`
     line-height: 1.5;
     font-weight: 400;
   }
-  button {
-    width: 150px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #2d61e9;
+  .link {
+    text-decoration: none;
     color: #78fa5f;
-    margin: 50px 10px;
-    .link {
-      text-decoration: none;
+    cursor: pointer;
+    button {
+      width: 150px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #2d61e9;
       color: #78fa5f;
-    }
-    &:hover,
-    &:active {
-      box-shadow: 0px 7px 2rem 1px #f752e0;
-      transform: scale(0.96);
+      margin: 50px 10px;
+      cursor: pointer;
+      &:hover,
+      &:active {
+        box-shadow: 0px 7px 2rem 1px #f752e0;
+        transform: scale(0.96);
+      }
     }
   }
+
   @media (max-width: 850px) {
     padding: 5px;
     h3 {

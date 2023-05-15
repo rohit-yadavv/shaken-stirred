@@ -37,6 +37,27 @@ const HomeReducer = (state, action) => {
         alcoholic: action.payload,
       };
 
+    case "LOADER_100":
+      return {
+        ...state,
+        progress: 100,
+      };
+    case "LOADER_80":
+      return {
+        ...state,
+        progress: 80,
+      };
+    case "LOADER_60":
+      return {
+        ...state,
+        progress: 60,
+      };
+    case "LOADER_30":
+      return {
+        ...state,
+        progress: 30,
+      };
+
     default:
       break;
   }
