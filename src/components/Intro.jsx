@@ -26,7 +26,7 @@ const Intro = () => {
           </button>
         </Info>
         <Images>
-          <img src="./public/assets/cocktail1.png" />
+          <img src="../public/assets/cocktail1.png" />
         </Images>
       </Container>
     </Wrapper>
