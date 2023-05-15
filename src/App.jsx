@@ -3,7 +3,7 @@ import React from "react";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
-import Cocktails from "./Cocktails";
+import CocktailsPage from "./CocktailsPage";
 import SingleDrink from "./SingleDrink";
 import ErrorPage from "./ErrorPage";
 import Header from "./components/Header";
@@ -19,8 +19,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/cocktails" element={<Cocktails />} />
-        <Route path="/singledrink/:id" element={<SingleDrink />} />
+        <Route path="/cocktails" element={<CocktailsPage />} />
+        <Route path="/detail/:id" element={<SingleDrink />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

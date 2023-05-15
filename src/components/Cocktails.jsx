@@ -4,21 +4,51 @@ import { useAppProvider } from "../context/HomeContext";
 import Drink from "./Drink";
 
 const Cocktails = () => {
-  const { cocktails, vodka } = useAppProvider();
-  console.log(vodka);
+  const { cocktails, vodka, tequilla, non_alcoholic, alcoholic } =
+    useAppProvider();
+  const uniqueCocktails = cocktails.filter((item, pos) => {
+    return cocktails.indexOf(item) == pos;
+  });
   return (
     <Wrapper>
       <hr />
       <h3 className="category-heading">Random Drinks</h3>
       <div>
-        {cocktails.map((curElem) => {
+        {uniqueCocktails.map((curElem) => {
           return <Drink key={curElem.idDrink} {...curElem} />;
         })}
       </div>
       <hr />
-      <h3 className="category-heading">Some Vodkas'</h3>
+      <h3 className="category-heading">Some Vodkas</h3>
       <div>
         {vodka.map((curElem, index) => {
+          if (index < 10) {
+            return <Drink key={curElem.idDrink} {...curElem} />;
+          }
+        })}
+      </div>
+      <hr />
+      <h3 className="category-heading">Some Tequila</h3>
+      <div>
+        {tequilla.map((curElem, index) => {
+          if (index < 10) {
+            return <Drink key={curElem.idDrink} {...curElem} />;
+          }
+        })}
+      </div>
+      <hr />
+      <h3 className="category-heading">Some Non Alcholic Drinks</h3>
+      <div>
+        {non_alcoholic.map((curElem, index) => {
+          if (index < 10) {
+            return <Drink key={curElem.idDrink} {...curElem} />;
+          }
+        })}
+      </div>
+      <hr />
+      <h3 className="category-heading">Some Alcholic Drinks</h3>
+      <div>
+        {alcoholic.map((curElem, index) => {
           if (index < 10) {
             return <Drink key={curElem.idDrink} {...curElem} />;
           }
@@ -41,6 +71,7 @@ const Wrapper = styled.section`
     text-align: center;
     padding: 35px;
     text-shadow: 1px 2px 2px #f693b9;
+    padding-bottom: 60px;
   }
   div {
     width: 100%;

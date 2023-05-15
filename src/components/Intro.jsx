@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Intro = () => {
@@ -9,15 +10,20 @@ const Intro = () => {
           <h5>Welcome to</h5>
           <h3>Shaken & Stireed</h3>
           <p>
-            Get ready to shake up your taste buds with our cocktail menu! From
-            classic favorites to modern twists, <br />
-            our carefully curated ingredients and expert bartenders create
-            visually stunning <br /> and bursting-with-flavor drinks that will
-            leave you wanting more.
-            <br />
-            Come sip, savor, and enjoy our unique cocktail creations!
+            Shaken & Stirred is a website that showcases cocktails and provides
+            a wealth of information <br />
+            and resources on the art of mixology. <br />
+            The website is dedicated to helping cocktail enthusiasts and
+            aspiring bartenders <br />
+            learn how to create delicious and sophisticated cocktails.
+            <br /> <br /> Come sip, savor, and enjoy our unique cocktail
+            creations!
           </p>
-          <button>Explore</button>
+          <button>
+            <NavLink className="link" to="/cocktails">
+              Explore
+            </NavLink>
+          </button>
         </Info>
         <Images>
           <img src="../public/assets/cocktail1.png" alt="" />
@@ -62,6 +68,10 @@ const Info = styled.div`
     background-color: #2d61e9;
     color: #78fa5f;
     margin: 50px 10px;
+    .link {
+      text-decoration: none;
+      color: #78fa5f;
+    }
     &:hover,
     &:active {
       box-shadow: 0px 7px 2rem 1px #f752e0;

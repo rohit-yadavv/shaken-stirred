@@ -67,6 +67,8 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
     gap: 2rem;
+    position: relative;
+    bottom: 30px;
   }
 
   .nav_link {

@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Drink = (curElem) => {
-  const { id, strDrink, strDrinkThumb } = curElem;
+  const { idDrink, strDrink, strDrinkThumb } = curElem;
   return (
-    <NavLink className="link">
+    <NavLink to={`/detail/${idDrink}`} className="link">
       <Card>
         <img src={strDrinkThumb} alt={strDrink} />
         <Data>
@@ -22,6 +22,10 @@ const Card = styled.div`
   width: 250px !important;
   gap: 0px !important;
   height: 220px;
+
+  @media (max-width: 600px) {
+    width: 290px !important;
+  }
 
   img {
     height: 150px;

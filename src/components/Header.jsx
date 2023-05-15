@@ -19,7 +19,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   color: white;
   align-items: center;
-  padding: 15px 30px;
+  padding: 15px 30px 0px;
   box-sizing: border-box;
   img {
     width: 280px;
