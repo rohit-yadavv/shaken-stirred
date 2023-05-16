@@ -135,11 +135,12 @@ const Nav = styled.nav`
       padding: 30px 0px;
       opacity: 1 !important;
       list-style: none;
+      gap: 30px;
     }
 
     li {
       a {
-        font-size: 2.5rem;
+        font-size: 2.5rem !important;
       }
     }
   }
