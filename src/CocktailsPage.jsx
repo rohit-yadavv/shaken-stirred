@@ -5,7 +5,7 @@ import Drink from "./components/Drink";
 import { useFilterProvider } from "./context/FilterContext";
 
 const CocktailsPage = () => {
-  const { ChangeAlpha, CocktailsPage } = useFilterProvider();
+  const { ChangeAlpha, CocktailsPage, FilterAlpha } = useFilterProvider();
 
   const Alpha = [
     "A",
@@ -50,7 +50,9 @@ const CocktailsPage = () => {
       </Filters>
       <CardWrapper>
         <hr />
-        <h3 className="category-heading">COCKTAILS</h3>
+        <h3 className="category-heading">
+          COCKTAILS STARTS WITH {FilterAlpha}
+        </h3>
         <div>
           {CocktailsPage.map((curElem, index) => {
             return <Drink key={index} {...curElem} />;
@@ -105,12 +107,11 @@ const CardWrapper = styled.div`
 
   hr {
     border-color: #ffffff33;
-    margin: 50px;
   }
   .category-heading {
     color: white;
     text-align: center;
-    padding: 35px;
+    padding: 30px;
     text-shadow: 1px 2px 2px #f693b9;
     padding-bottom: 60px;
   }

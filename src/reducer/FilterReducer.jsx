@@ -10,6 +10,21 @@ const FilterReducer = (state, action) => {
         ...state,
         CocktailsPage: action.payload,
       };
+    case "LOADER_30":
+      return {
+        ...state,
+        Fprogress: 30,
+      };
+    case "LOADER_65":
+      return {
+        ...state,
+        Fprogress: 65,
+      };
+    case "LOADER_100":
+      return {
+        ...state,
+        Fprogress: 100,
+      };
     default:
       break;
   }

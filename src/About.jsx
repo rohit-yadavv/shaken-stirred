@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
 const About = () => {
   return (
     <Wrapper>
@@ -43,9 +42,9 @@ const About = () => {
           </button>
         </Info>
         <Images>
-          <img src="../public/assets/cocktail-png-13.png" alt="" />
-          <img src="../public/assets/784kkl_large.png" alt="" />
-          <img src="../public/assets/pngkey.com-martini-glass-png-949522 (1).png" />
+          <img src="/assets/cocktail-png-13.png" alt="" />
+          <img src="/assets/784kkl_large.png" alt="" />
+          <img src="/assets/pngkey.com-martini-glass-png-949522 (1).png" />
         </Images>
       </Container>
     </Wrapper>

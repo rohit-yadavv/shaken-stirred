@@ -41,7 +41,6 @@ const SingleDrink = () => {
     strTags,
   } = drinkDetail;
 
-  console.log(strDrink);
   return (
     <Wrapper>
       <Name>

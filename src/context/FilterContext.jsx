@@ -6,6 +6,7 @@ const initialState = {
   FilterAlpha: "A",
   FilterCocktail: [],
   CocktailsPage: [],
+  Fprogress: 0,
 };
 const API = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=";
 
@@ -18,19 +19,29 @@ const FilterProvider = (props) => {
   };
 
   const getFIlteredCocktails = async (url) => {
-    console.log(url);
-    try {
-      const res = await axios.get(url);
-      console.log(res);
-      var drink = await res.data.drinks;
-      dispatch({ type: "COCKTAIL_PAGE", payload: drink });
-    } catch (error) {
-      console.log("error");
+    if (state.FilterAlpha === "A") {
+      try {
+        const res = await axios.get(url);
+        var drink = await res.data.drinks;
+        dispatch({ type: "COCKTAIL_PAGE", payload: drink });
+      } catch (error) {
+        console.log("error");
+      }
+    } else {
+      try {
+        dispatch({ type: "LOADER_30" });
+        const res = await axios.get(url);
+        dispatch({ type: "LOADER_65" });
+        var drink = await res.data.drinks;
+        dispatch({ type: "COCKTAIL_PAGE", payload: drink });
+        dispatch({ type: "LOADER_100" });
+      } catch (error) {
+        console.log("error");
+      }
     }
   };
   useEffect(() => {
     getFIlteredCocktails(`${API}${state.FilterAlpha}`);
-    console.log("first");
   }, [state.FilterAlpha]);
 
   return (

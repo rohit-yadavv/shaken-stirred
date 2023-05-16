@@ -11,11 +11,14 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAppProvider } from "./context/HomeContext";
+import { useFilterProvider } from "./context/FilterContext";
 const App = () => {
   const { progress } = useAppProvider();
+  const { Fprogress } = useFilterProvider();
   return (
     <>
-      <LoadingBar color="#f11946" progress={progress} />
+      <LoadingBar color="#993A85" progress={progress} />
+      <LoadingBar color="#3dd8fc" progress={Fprogress} />
       <Router>
         <Header />
         <Routes>

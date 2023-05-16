@@ -36,6 +36,16 @@ const HomeReducer = (state, action) => {
         ...state,
         alcoholic: action.payload,
       };
+    case "LOADING_FALSE":
+      return {
+        ...state,
+        isloading: false,
+      };
+    case "LOADING_TRUE":
+      return {
+        ...state,
+        isloading: true,
+      };
 
     case "LOADER_100":
       return {

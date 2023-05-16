@@ -88,10 +88,10 @@ const Nav = styled.nav`
   @media (max-width: 850px) {
     .menu_button {
       display: inline-block;
-      font-size: 4rem;
+      font-size: 2.5rem;
       position: absolute;
-      top: 2px;
-      right: 15px;
+      top: 10px;
+      right: 10px;
       z-index: 9999;
     }
     .menu_icon {
@@ -114,10 +114,11 @@ const Nav = styled.nav`
       justify-content: center;
       height: 100vh;
       width: 100vw;
-      z-index: 999;
+      /* z-index: 999; */
       padding: 30px 0px;
       opacity: 0;
       list-style: none;
+      z-index: -5;
     }
     .active-navbar-lists {
       position: absolute;

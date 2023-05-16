@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useAppProvider } from "../context/HomeContext";
 import Drink from "./Drink";
 
 const Cocktails = () => {
-  const { cocktails, vodka, tequilla, non_alcoholic, alcoholic } =
-    useAppProvider();
-  console.log(cocktails);
+  const {
+    isloading,
+    cocktails,
+    vodka,
+    tequilla,
+    non_alcoholic,
+    alcoholic,
+    spinner,
+  } = useAppProvider();
   const uniqueCocktails = cocktails.filter((item, pos) => {
     return cocktails.indexOf(item) == pos;
   });
@@ -14,47 +20,84 @@ const Cocktails = () => {
     <Wrapper>
       <hr />
       <h3 className="category-heading">Random Drinks</h3>
-      <div>
-        {uniqueCocktails.map((curElem) => {
-          return <Drink key={curElem.idDrink} {...curElem} />;
-        })}
-      </div>
+      {isloading ? (
+        <Spinner>
+          <img src={spinner} alt="" />
+        </Spinner>
+      ) : (
+        <div>
+          {uniqueCocktails.map((curElem) => {
+            return <Drink key={curElem.idDrink} {...curElem} />;
+          })}
+        </div>
+      )}
+
       <hr />
       <h3 className="category-heading">Some Vodkas</h3>
-      <div>
-        {vodka.map((curElem, index) => {
-          if (index < 10) {
-            return <Drink key={curElem.idDrink} {...curElem} />;
-          }
-        })}
-      </div>
+
+      {isloading ? (
+        <Spinner>
+          <img src={spinner} alt="" />
+        </Spinner>
+      ) : (
+        <div>
+          {vodka.map((curElem, index) => {
+            if (index < 10) {
+              return <Drink key={curElem.idDrink} {...curElem} />;
+            }
+          })}
+        </div>
+      )}
+
       <hr />
       <h3 className="category-heading">Some Tequila</h3>
-      <div>
-        {tequilla.map((curElem, index) => {
-          if (index < 10) {
-            return <Drink key={curElem.idDrink} {...curElem} />;
-          }
-        })}
-      </div>
+
+      {isloading ? (
+        <Spinner>
+          <img src={spinner} alt="" />
+        </Spinner>
+      ) : (
+        <div>
+          {tequilla.map((curElem, index) => {
+            if (index < 10) {
+              return <Drink key={curElem.idDrink} {...curElem} />;
+            }
+          })}
+        </div>
+      )}
+
       <hr />
       <h3 className="category-heading">Some Non Alcholic Drinks</h3>
-      <div>
-        {non_alcoholic.map((curElem, index) => {
-          if (index < 10) {
-            return <Drink key={curElem.idDrink} {...curElem} />;
-          }
-        })}
-      </div>
+
+      {isloading ? (
+        <Spinner>
+          <img src={spinner} alt="" />
+        </Spinner>
+      ) : (
+        <div>
+          {non_alcoholic.map((curElem, index) => {
+            if (index < 10) {
+              return <Drink key={curElem.idDrink} {...curElem} />;
+            }
+          })}
+        </div>
+      )}
+
       <hr />
       <h3 className="category-heading">Some Alcholic Drinks</h3>
-      <div>
-        {alcoholic.map((curElem, index) => {
-          if (index < 10) {
-            return <Drink key={curElem.idDrink} {...curElem} />;
-          }
-        })}
-      </div>
+      {isloading ? (
+        <Spinner>
+          <img src={spinner} alt="" />
+        </Spinner>
+      ) : (
+        <div>
+          {alcoholic.map((curElem, index) => {
+            if (index < 10) {
+              return <Drink key={curElem.idDrink} {...curElem} />;
+            }
+          })}
+        </div>
+      )}
     </Wrapper>
   );
 };
@@ -62,7 +105,6 @@ const Cocktails = () => {
 const Wrapper = styled.section`
   padding: 50px;
   width: 100%;
-
   hr {
     border-color: #ffffff33;
     margin: 50px;
@@ -94,4 +136,13 @@ const Wrapper = styled.section`
     }
   }
 `;
+const Spinner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 50px !important;
+  }
+`;
+
 export default Cocktails;

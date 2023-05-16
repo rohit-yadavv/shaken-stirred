@@ -14,16 +14,18 @@ const NON_ALCOHOLIC =
 const ALCOHOLIC =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic";
 
+import spinner from "/public/assets/Spinner.gif";
+
 const initialState = {
   cocktails: [],
   vodka: [],
   tequilla: [],
   non_alcoholic: [],
   alcoholic: [],
-  isloading: false,
+  isloading: true,
   drinkDetail: {},
   AlphaFilter: [],
-  progress: 10,
+  progress: 0,
 };
 
 const AppProvider = (props) => {
@@ -33,16 +35,17 @@ const AppProvider = (props) => {
   const addData = (drink) => {
     drinks = drinks.concat(drink);
     dispatch({ type: "TOP_DRINKS", payload: drinks });
-    dispatch({ type: "LOADER_80" });
+    if (drinks.length === 10) {
+      dispatch({ type: "LOADER_100" });
+      dispatch({ type: "LOADING_FALSE" });
+    }
   };
 
   const getCocktails = async (url) => {
     try {
       dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
-      dispatch({ type: "LOADER_60" });
       var drink = await res.data.drinks;
-      dispatch({ type: "LOADER_80" });
     } catch (error) {
       console.log("error");
     }
@@ -51,13 +54,9 @@ const AppProvider = (props) => {
   // to get vodka details
   const getVodka = async (url) => {
     try {
-      dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
-      dispatch({ type: "LOADER_60" });
       var vodka_drink = await res.data.drinks;
-      dispatch({ type: "LOADER_80" });
       dispatch({ type: "RANDOM_VODKA", payload: vodka_drink });
-      dispatch({ type: "LOADER_100" });
     } catch (error) {
       console.log("error");
     }
@@ -66,13 +65,9 @@ const AppProvider = (props) => {
   // to get Tequilla details
   const getTequilla = async (url) => {
     try {
-      dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
-      dispatch({ type: "LOADER_60" });
       var tequilla_drink = await res.data.drinks;
-      dispatch({ type: "LOADER_80" });
       dispatch({ type: "RANDOM_TEQUILLA", payload: tequilla_drink });
-      dispatch({ type: "LOADER_100" });
     } catch (error) {
       console.log("error");
     }
@@ -80,26 +75,18 @@ const AppProvider = (props) => {
 
   const getNonAlcholic = async (url) => {
     try {
-      dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
-      dispatch({ type: "LOADER_60" });
       var non_alcholic_drink = await res.data.drinks;
-      dispatch({ type: "LOADER_80" });
       dispatch({ type: "NON_ALCOHOLIC", payload: non_alcholic_drink });
-      dispatch({ type: "LOADER_100" });
     } catch (error) {
       console.log("error");
     }
   };
   const getAlcholic = async (url) => {
     try {
-      dispatch({ type: "LOADER_30" });
       const res = await axios.get(url);
-      dispatch({ type: "LOADER_60" });
       var alcholic_drink = await res.data.drinks;
-      dispatch({ type: "LOADER_80" });
       dispatch({ type: "ALCOHOLIC", payload: alcholic_drink });
-      dispatch({ type: "LOADER_100" });
     } catch (error) {
       console.log("error");
     }
@@ -112,7 +99,6 @@ const AppProvider = (props) => {
       dispatch({ type: "LOADER_60" });
       var drink_details = await res.data.drinks[0];
       dispatch({ type: "LOADER_80" });
-      // console.log(drink_details);
       dispatch({ type: "DRINK_DETAIL", payload: drink_details });
       dispatch({ type: "LOADER_100" });
     } catch (error) {
@@ -130,7 +116,7 @@ const AppProvider = (props) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state, getDetails }}>
+    <AppContext.Provider value={{ ...state, getDetails, spinner }}>
       {props.children}
     </AppContext.Provider>
   );
