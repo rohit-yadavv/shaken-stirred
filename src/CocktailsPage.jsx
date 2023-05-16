@@ -96,6 +96,7 @@ const Filters = styled.div`
     border: none;
     background-color: #cd7509;
     color: white;
+    width: 35px;
     &:hover {
       color: #cd7509;
       background-color: #230312;
