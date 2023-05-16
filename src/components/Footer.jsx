@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { BsFillHeartFill } from "react-icons/bs";
-
+import { SiAboutdotme } from "react-icons/si";
 import { GrLinkedin, GrFacebook, GrInstagram } from "react-icons/gr";
 import { Link } from "react-router-dom";
 const Footer = () => {
@@ -34,19 +34,22 @@ const Footer = () => {
               rel="stylesheet"
               to="https://www.instagram.com/rewarrior_532/?hl=en"
             >
-              <GrInstagram color="white" />
+              <GrInstagram color="#ffffffd8" />
             </Link>
             <Link
               rel="stylesheet"
               to="https://www.facebook.com/RohitYadav.532/"
             >
-              <GrFacebook color="white" />
+              <GrFacebook color="#ffffffd8" />
             </Link>
             <Link
               rel="stylesheet"
               to="https://www.linkedin.com/in/rohit-yadav-240448255/"
             >
-              <GrLinkedin color="white" />
+              <GrLinkedin color="#ffffffd8" />
+            </Link>
+            <Link rel="stylesheet" to="https://rohityadavv.netlify.app/">
+              <SiAboutdotme fontSize="30px" color="#ffffffd8" />
             </Link>
           </Social>
         </Links>

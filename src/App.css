@@ -15,6 +15,11 @@ body {
   text-decoration: none;
 }
 
+.main-line {
+  border-color: #ffffff33;
+  background-color: #230312;
+}
+
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   touch-action: auto;

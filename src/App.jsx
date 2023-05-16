@@ -21,6 +21,7 @@ const App = () => {
       <LoadingBar color="#3dd8fc" progress={Fprogress} />
       <Router>
         <Header />
+        <hr className="main-line" />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

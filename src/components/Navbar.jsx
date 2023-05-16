@@ -138,7 +138,9 @@ const Nav = styled.nav`
     }
 
     li {
-      font-size: 2.5rem;
+      a {
+        font-size: 2.5rem;
+      }
     }
   }
 `;

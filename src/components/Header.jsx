@@ -21,6 +21,10 @@ const Wrapper = styled.header`
   align-items: center;
   padding: 15px 30px 0px;
   box-sizing: border-box;
+  width: 100%;
+  hr {
+    width: 100%;
+  }
   img {
     width: 280px;
     height: 150px;
