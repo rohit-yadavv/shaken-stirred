@@ -33,7 +33,7 @@ const Cocktails = () => {
       )}
 
       <hr />
-      <h3 className="category-heading">Some Vodkas</h3>
+      <h3 className="category-heading"> Vodkas</h3>
 
       {isloading ? (
         <Spinner>
@@ -50,7 +50,7 @@ const Cocktails = () => {
       )}
 
       <hr />
-      <h3 className="category-heading">Some Tequila</h3>
+      <h3 className="category-heading"> Tequila</h3>
 
       {isloading ? (
         <Spinner>
@@ -67,7 +67,7 @@ const Cocktails = () => {
       )}
 
       <hr />
-      <h3 className="category-heading">Some Non Alcholic Drinks</h3>
+      <h3 className="category-heading"> Non Alcholic Drinks</h3>
 
       {isloading ? (
         <Spinner>
@@ -84,7 +84,7 @@ const Cocktails = () => {
       )}
 
       <hr />
-      <h3 className="category-heading">Some Alcholic Drinks</h3>
+      <h3 className="category-heading"> Alcholic Drinks</h3>
       {isloading ? (
         <Spinner>
           <img src={spinner} alt="" />
