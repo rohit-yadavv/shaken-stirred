@@ -43,7 +43,7 @@ const AppProvider = (props) => {
 
   const getCocktails = async (url) => {
     try {
-      dispatch({ type: "LOADER_30" });
+      dispatch({ type: "LOADER_30" }); 
       const res = await axios.get(url);
       var drink = await res.data.drinks;
     } catch (error) {
